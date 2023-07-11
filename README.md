@@ -17,13 +17,14 @@ Whenever they fill a character property, next to the form, the character sheet w
 ## Tasks
 
 1. Create a form that the user can fill up. A character needs to have a name, a choosable gender, race and class.
-    - When we open up the HTML file, a form shows up
-    - The form contains an input field for the character name
-    - We can choose from dropdown menus for the gender, for the race and for the class
+
+   - When we open up the HTML file, a form shows up
+   - The form contains an input field for the character name
+   - We can choose from dropdown menus for the gender, for the race and for the class
 
 2. Whenever an input changes, the character sheet next to the form will fill up with the change. Use icons or images for the character sheet when you want to display the dropdown menus value.
-    - When we change the name or a dropdown menu value,  the value shows up next to the form in a character sheet
-    - For the gender, the race and class, the value is represented with an icon or an image
+   - When we change the name or a dropdown menu value, the value shows up next to the form in a character sheet
+   - For the gender, the race and class, the value is represented with an icon or an image
 
 ## General requirements
 

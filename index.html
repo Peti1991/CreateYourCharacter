@@ -5,12 +5,51 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + TS</title>
+    <link rel="stylesheet" href="src/style.css" />
   </head>
-  <body class="mt-20 flex items-center justify-center bg-red-600">
-    <div id="app"></div>
-    <p class="m-4 p-4">elso</p>
-    <p class="m-4 p-4">masodik</p>
-    <button class="button hover:bg-yellow-200" id="load-button">Load</button>
+  <body class="m-auto flex max-w-6xl flex-col items-center justify-evenly">
+    <div></div>
+    <div
+      class="flex h-96 flex-row justify-between gap-80 rounded-lg bg-slate-800 bg-opacity-60"
+    >
+      <div class="flex flex-shrink-0 flex-col justify-center gap-5 p-5">
+        <input
+          type="text"
+          id="characterInput"
+          placeholder="Character name"
+          class="border-0 text-center"
+          maxlength="20"
+        />
+        <select name="Gender" id="gender" class="border-0 text-center">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+        <select name="gameType" id="gameTypeInput" class="border-0 text-center">
+          <option value="Hardcore">Hardcore</option>
+          <option value="Softcore">Softcore</option>
+        </select>
+        <select name="class" id="ClassImage" class="border-0 text-center">
+          <option value="Sorcerer">Sorcerer</option>
+          <option value="Barbarian">Barbarian</option>
+          <option value="Rogue">Rogue</option>
+          <option value="Necromancer">Necromancer</option>
+          <option value="Druid">Druid</option>
+        </select>
+      </div>
+      <div class="flex w-64 flex-col">
+        <div class="flex flex-col p-5 items-center">
+          <p
+            id="characterOutput"
+            class="h-6 w-44 rounded-sm border-b-2 border-red-700 text-center text-black mb-2"
+          ></p>
+          <p id="gameTypeOutput" class="h-6 w-44 rounded-sm border-b-2 border-red-700 text-center text-black"></p>
+        </div>
+        <div>
+          <img src="" id="charImage" class="h-72 w-64" style="display: none" />
+        </div>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

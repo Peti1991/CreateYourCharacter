@@ -1,41 +1,32 @@
-import "./style.css";
-import http from "axios";
-import { z } from "zod";
+function writeInput(event: Event) {
+  let input = (event.target as HTMLInputElement).value;
+  characterOutput.innerHTML = input;
+}
 
-const CharacterResponseSchema = z.object({
-  info: z.object({
-    next: z.string(),
-  }),
-  results: z
-    .object({
-      name: z.string(),
-    })
-    .array(),
-});
-type CharacterResponse = z.infer<typeof CharacterResponseSchema>;
+function changeImage() {
+  charImage.src = "../img/" + ClassImage.value + "-" + gender.value + ".jpg";
+  charImage.style.display = "block";
+}
 
-const load = async (): Promise<CharacterResponse | null> => {
-  const response = await http.get("https://rickandmortyapi.com/api/character");
-  const data = response.data;
-
-  const result = CharacterResponseSchema.safeParse(data);
-
-  if (!result.success) {
-    console.log(result.error);
-    return null;
+function changeGame() {
+  console.log(gameTypeInput.value)
+  if (gameTypeInput.value === "Hardcore"){
+    gameTypeOutput.innerHTML = "Hardcore"
   }
+  if (gameTypeInput.value === "Softcore"){
+    gameTypeOutput.innerHTML = "Softcore"
+  }
+}
 
-  return result.data;
-};
+let characterInput = document.getElementById("characterInput")!;
+let characterOutput = document.getElementById("characterOutput")!;
+let charImage = document.getElementById("charImage")!;
+let ClassImage = document.getElementById("ClassImage")!;
+let gender = document.getElementById("gender")!;
+let gameTypeInput = document.getElementById("gameTypeInput")!
+let gameTypeOutput = document.getElementById("gameTypeOutput")!
 
-const init = async () => {
-  const characters = await load();
-  if (characters)
-    document.getElementById("app")!.innerHTML = characters.results[0].name;
-};
-
-document.getElementById("load-button")!.addEventListener("click", init);
-
-document
-  .getElementById("app")!
-  .insertAdjacentHTML("afterend", "<p class='bg-pink-400'>demo</p>");
+characterInput.addEventListener("input", writeInput);
+ClassImage.addEventListener("change", changeImage);
+gender.addEventListener("change", changeImage);
+gameTypeInput.addEventListener("change", changeGame);
